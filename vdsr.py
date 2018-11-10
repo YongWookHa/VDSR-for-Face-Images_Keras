@@ -13,8 +13,8 @@ import os, threading
 from scipy.misc import imread, imresize
 import numpy as np
 
-DATA_X_PATH = "./data/x_blur_3/"
-DATA_Y_PATH = "./data/128by128_/"
+DATA_X_PATH = "./data/x/"
+DATA_Y_PATH = "./data/y/"
 TARGET_IMG_SIZE = (128, 128, 3)
 BATCH_SIZE = 64
 EPOCHS = 100
@@ -78,7 +78,7 @@ def image_gen(target_list):
 			batch_x, batch_y = get_image_batch(target_list, offset)
 			yield (batch_x, batch_y)
 
-
+# evaluate methods
 def PSNR(y_true, y_pred):
 	max_pixel = 1.0
 	return 10.0 * tf_log10((max_pixel ** 2) / (K.mean(K.square(y_pred - y_true))))
@@ -87,13 +87,11 @@ def SSIM(y_true, y_pred):
 	max_pixel = 1.0
 	return tf.image.ssim(y_pred, y_true, max_pixel)
 
-
-
 # Get the training and testing data
 img_list = get_image_list(DATA_X_PATH)
-train_list = img_list[:130000]
-test_list = img_list[130000:]
-
+num_train_imgs = int(len(img_list)* 0.7)
+train_list = img_list[:num_train_imgs]
+test_list = img_list[num_train_imgs:]
 
 input_img = Input(shape=TARGET_IMG_SIZE)
 
