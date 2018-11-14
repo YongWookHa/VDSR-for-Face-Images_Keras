@@ -14,6 +14,11 @@ The codes in this repository are optimized to up-scale Face images.
 
 ## Usage
 
+Before you run the model, make directories below.
+* `checkpoints` : checkpoints are going to be saved in this directory
+* `data ` : for image data you are using
+* `model` : model architecture and weights are going to be saved in this directory
+
 **vdsr.py**
 > Prepare your own dataset.
 > Set `DATA_X_PATH`, `DATA_Y_PATH`, `TARGET_IMG_SIZE` variables.
