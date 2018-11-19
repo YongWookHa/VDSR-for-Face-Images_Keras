@@ -1,4 +1,4 @@
-# Keras VDSR for Face images
+# Keras VDSR for Generated image
 
 ## Overview
 
