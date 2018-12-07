@@ -27,7 +27,7 @@ Before you run the model, make directories below.
 > `TARGET_IMG_SIZE` : Size of output imgaes
 > Default size of input image data is 64x64(RBG), but you can use your own dataset. It will resize the image to `TARGET_IMG_SIZE` anyway.
 > 
-> You need to add code below to `losses.py` file to use [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) as loss function.
+> You need to add code below to `keras/losses.py` file to use [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) as loss function.
 ~~~
 def tf_log10(x):
   numerator = tf.log(x)
